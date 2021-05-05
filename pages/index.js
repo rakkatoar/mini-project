@@ -1,65 +1,29 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import AtomText from "../components/atoms/text";
+import AtomButton from "../components/atoms/button";
+import MoleculeTask from "../components/molecules/task";
+import OrganismNav from "../components/organisms/nav";
+import OrganismGroupTask from "../components/organisms/groupTask";
+import {useRouter} from "next/router";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {useState} from "react";
 
-export default function Home() {
+export default function index() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+    <>
+      <div class="row" style={{marginRight:"0"}}>
+        <div class="col-1">
+          <OrganismNav />
         </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+        <div class="col-11 mt-2">
+          <AtomText value="Product Roadmap" weight="500" size="20px" padding="5px"/>
+            <div className="row container mt-1" style={{maxWidth:"2000px"}}>
+                <OrganismGroupTask title="Group Task 1" background="#FFF9FB" backgroundTitle="#FFF0F6" borderRadius="4px" borderRadiusTitle="2px" border="1px solid #EB2F96" borderTitle="1px solid #FFADD2" titleColor="#EB2F96" startMonth="January" endMonth="March" />
+                <OrganismGroupTask title="Group Task 2" background="#FCFAFD" backgroundTitle="#F9F0FF" borderRadius="4px" borderRadiusTitle="2px" border="1px solid #7B61FF" borderTitle="1px solid #D3ADF7" titleColor="#7B61FF" startMonth="April" endMonth="June" />
+                <OrganismGroupTask title="Group Task 3" background="#F7FAFF" backgroundTitle="#F0F5FF" borderRadius="4px" borderRadiusTitle="2px" border="1px solid #2F54EB" borderTitle="1px solid #ADC6FF" titleColor="#2F54EB" startMonth="July" endMonth="September"/>
+                <OrganismGroupTask title="Group Task 4" background="#F8FEF1" backgroundTitle="#F6FFED" borderRadius="4px" borderRadiusTitle="2px" border="1px solid #52C41A" borderTitle="1px solid #B7EB8F" titleColor="#52C41A" startMonth="October" endMonth="December"/>
+            </div>
+        </div>
+      </div>
+    </>
+  );
 }
