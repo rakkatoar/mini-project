@@ -1,5 +1,5 @@
 import AtomText from "../../components/atoms/text";
-import AtomProgressbar from "../../components/atoms/progressbar";
+import AtomProgressbar from "../../components/atoms/progressBar";
 import AtomButton from "../../components/atoms/button";
 
 export default function task({value}) {
