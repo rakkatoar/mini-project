@@ -1,10 +1,10 @@
 import AtomText from "../components/atoms/text";
-import AtomButton from "../components/atoms/button";
-import MoleculeTask from "../components/molecules/task";
 import OrganismNav from "../components/organisms/nav";
 import OrganismGroupTask from "../components/organisms/groupTask";
+
 import {useRouter} from "next/router";
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 import {useState} from "react";
 
 export default function index() {
