@@ -8,7 +8,7 @@ import {Dropdown, DropdownButton} from "react-bootstrap";
 import {Modal} from "react-bootstrap";
 import {useState} from "react";
 
-export default function task({value}) {
+export default function task({groupTask, id, title, progress}) {
 	const [showEdit, setShowEdit] = useState(false);
 	const [showDelete, setShowDelete] = useState(false);
 	const handleModalEdit = () => {
@@ -44,13 +44,13 @@ export default function task({value}) {
 	return (
 		<>
 		<style type="text/css">
-						{`
-							.modal-body{
-								padding:30px 35px;
-							}
-							`}
-					</style>
-			<Modal
+			{`
+				.modal-body{
+					padding:30px 35px;
+				}
+			`}
+		</style>
+		<Modal
 			onHide={() => setShowEdit(false)}
       show={showEdit}
       aria-labelledby="contained-modal-title-vcenter"
@@ -90,14 +90,12 @@ export default function task({value}) {
 				</div>
       </Modal.Body>
     </Modal>
-			{/* <div style={{background:"#FFFFFF", border: "1px solid #E4E4E8", borderRadius: "4px", padding:"12px 16px", margin:"10px 0"}}>
-				<AtomText value="No Task Available" color="#B7BDC9"/>
-			</div> */}
-			<div style={{background:"#FFFFFF", border: "1px solid #E4E4E8", borderRadius: "4px", padding:"12px 16px", margin:"10px 0"}}>
-				<AtomText value={value} color="#2F3136" weight="bold"/>
+			
+			<div key={id} style={{background:"#FFFFFF", border: "1px solid #E4E4E8", borderRadius: "4px", padding:"12px 16px", margin:"10px 0"}}>
+				<AtomText value={title} color="#2F3136" weight="bold"/>
 				<div className="row">
 					<div className="col-9" style={{alignItems:"center"}}>
-						<AtomProgressbar progress="75" />
+						<AtomProgressbar progress={progress} color={progress == "100" ? "#52C41A": "#1890FF"}/>
 					</div>
 					<div className="col-3" style={{alignItems:"center", height:"25px", display:"flex"}}>
 					<style type="text/css">
@@ -137,13 +135,15 @@ export default function task({value}) {
 					</style>
 					<DropdownButton id="dropdown-item-button" title={<img src="/images/ellipsis.png"/>}>
 						<div style={{fontSize:"14px"}}>
-						<Dropdown.Item as="button"><FontAwesomeIcon icon={faArrowLeft}/><AtomText value="Move Left" size="14px" marginLeft="15px" display="inline-block" marginBottom="0"/></Dropdown.Item>
-						<Dropdown.Item as="button"><FontAwesomeIcon icon={faArrowRight}/><AtomText value="Move Right" size="14px" marginLeft="15px" display="inline-block" marginBottom="0"/></Dropdown.Item>
+						{ groupTask == "Group Task 1" ? ("")
+						: (<Dropdown.Item as="button"><FontAwesomeIcon icon={faArrowLeft}/><AtomText value="Move Left" size="14px" marginLeft="15px" display="inline-block" marginBottom="0"/></Dropdown.Item>)}
+						{ groupTask == "Group Task 4" ? ("")
+						: (<Dropdown.Item as="button"><FontAwesomeIcon icon={faArrowRight}/><AtomText value="Move Right" size="14px" marginLeft="15px" display="inline-block" marginBottom="0"/></Dropdown.Item>)
+						}
 						<Dropdown.Item as="button" onClick={handleModalEdit}><FontAwesomeIcon icon={faPencilAlt}/><AtomText value="Edit" size="14px" marginLeft="15px" display="inline-block" marginBottom="0"/></Dropdown.Item>
 						<Dropdown.Item as="button" onClick={handleModalDelete}><FontAwesomeIcon icon={faTrash}/><AtomText value="Delete" size="14px" marginLeft="15px" display="inline-block" marginBottom="0"/></Dropdown.Item>
 						</div>
 					</DropdownButton>
-						{/* <AtomButton icon="/images/ellipsis.png" background="none" border="none" width="25px" height="20px" topIcon="1px" /> */}
 					</div>
 				</div>
 			</div>

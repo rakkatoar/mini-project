@@ -1,8 +1,8 @@
-export default function button({ float, icon, value, color, height, fontSize, background, border, radius, padding, position, bottom, marginTop, marginBottom, marginRight, width, weight, display, topIcon, onClick }) {
+export default function button({ groupTaskId, float, icon, value, color, height, fontSize, background, border, radius, padding, position, bottom, marginTop, marginBottom, marginRight, width, weight, display, topIcon, onClick }) {
   return (
     
   <button
-  onClick={onClick} style={{ float:float, width: width ? width : "150px",
+  onClick={onClick} className={groupTaskId} style={{ float:float, width: width ? width : "150px",
   height: height ? height : "43px", color: color, fontWeight:weight, fontSize: fontSize, background: background, border: border, borderRadius: radius, display:display, padding: padding, position: position, bottom: bottom, marginTop: marginTop, marginBottom: marginBottom, marginRight:marginRight}}>
     {icon ? (
         <>

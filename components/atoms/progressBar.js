@@ -8,12 +8,12 @@ export default function text({ progress }) {
 						<style type="text/css">
 						{`
 							.progress {
-								background-color: ##52C41A;
+								background-color: #F5F5F5;
 								border-radius: 8px;
 								height:10px;
 							}
 							.progress-bar {
-								background-color: #1890FF;
+								background-color: #52C41A;
 								color: white;
 								border-radius: 8px;
 							}
@@ -38,8 +38,8 @@ export default function text({ progress }) {
 							}
 						`}
 					</style>
-						<ProgressBar now={progress} variant="custom" style={{display:"inline-flex", width:"50%", marginRight:"10px"}}/>
-						<AtomText value={`${progress}%`} color="#8C8C8C" size="12px" display="inline-flex" marginBottom="0"/>
+					<ProgressBar now={progress} variant="custom" style={{display:"inline-flex", width:"50%", marginRight:"10px"}}/>
+					<AtomText value={`${progress}%`} color="#8C8C8C" size="12px" display="inline-flex" marginBottom="0"/>
 			</>
 			)
 	);
